@@ -105,9 +105,13 @@ send_email_via_gmail:
         to: {lead_email}
         bcc: ayush@sbl.so,team@sbl.so
         subject: [exact subject line from the drafted email]
-        body: [exact body from the drafted email, including the Best / Agnes sign-off]
-      Do not modify the subject or body. Send it exactly as drafted.
-      After the tool confirms, report the recipient, CC, subject, and that it was sent.
+        body: [the email body converted to HTML for proper Gmail rendering:
+               - Replace every blank line between paragraphs with </p><p>
+               - Wrap the entire body in <p>...</p> tags
+               - The sign-off "Best,\nAgnes" becomes Best,<br>Agnes
+               - Example: <p>First paragraph text.</p><p>Second paragraph text.</p><p>Third paragraph question.</p><p>Best,<br>Agnes</p>]
+      Do not modify the subject or text content. Only convert formatting to HTML.
+      After the tool confirms, report the recipient, subject, and that it was sent.
   expected_output: >
     If dry_run:
       "DRY RUN PREVIEW — email NOT sent:

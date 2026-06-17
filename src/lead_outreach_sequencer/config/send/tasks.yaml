@@ -1,0 +1,22 @@
+---
+send_email_via_gmail:
+  description: >
+    Send the approved email to {lead_email} via Gmail. CC ayush@sbl.so.
+
+    The approved email content is provided below — use it exactly as given,
+    do not modify the subject line or body in any way:
+
+    {approved_email}
+
+    Steps:
+    1. Parse the subject line (the line starting with "Subject:")
+    2. Parse the body (everything after the subject line)
+    3. Send to {lead_email}, CC ayush@sbl.so
+    4. Confirm delivery
+  expected_output: >
+    Confirmation of successful send including:
+    - Recipient email address
+    - CC address (ayush@sbl.so)
+    - Subject line used
+    - Confirmation that the email was dispatched
+  agent: email_dispatcher

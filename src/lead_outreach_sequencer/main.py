@@ -21,7 +21,7 @@ import json
 import sys
 from pathlib import Path
 
-from lead_outreach_sequencer.crew import LeadOutreachSequencerCrew
+from lead_outreach_sequencer.crew import DraftCrew, SendCrew, LeadOutreachSequencerCrew
 
 # Sample lead — replace with real data when running
 SAMPLE_LEAD = {
@@ -48,13 +48,13 @@ SAMPLE_LEAD = {
 
 
 def run():
-    """Run the crew for a single lead (uses SAMPLE_LEAD)."""
-    LeadOutreachSequencerCrew().crew().kickoff(inputs=SAMPLE_LEAD)
+    """Run Draft Crew for the sample lead — review output, then run 'send' command."""
+    DraftCrew().crew().kickoff(inputs=SAMPLE_LEAD)
 
 
 def run_lead(lead: dict):
-    """Run the crew for a single lead dict."""
-    LeadOutreachSequencerCrew().crew().kickoff(inputs=lead)
+    """Run Draft Crew for a single lead dict."""
+    DraftCrew().crew().kickoff(inputs=lead)
 
 
 def run_batch(leads_file: str, batch_size: int = 10):

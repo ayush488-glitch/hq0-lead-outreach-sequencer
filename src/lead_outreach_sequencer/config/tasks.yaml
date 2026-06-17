@@ -106,7 +106,7 @@ send_email_via_gmail:
       Do not describe what you would do. Do not say you cannot send emails.
       You have the google_gmail/send_email tool available — call it with these exact parameters:
         to: {lead_email}
-        cc: ayush@sbl.so,team@sbl.so
+        bcc: ayush@sbl.so,team@sbl.so
         subject: [exact subject line from the drafted email]
         body: [exact body from the drafted email, including the Best / Agnes sign-off]
       Do not modify the subject or body. Send it exactly as drafted.

@@ -5,7 +5,7 @@ description = "lead_outreach_sequencer using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
-    "crewai[file-processing,litellm,tools]==1.14.4",
+    "crewai[anthropic,file-processing,litellm,tools]==1.14.4",
     "firecrawl-py>=1.0.0",
 ]
 

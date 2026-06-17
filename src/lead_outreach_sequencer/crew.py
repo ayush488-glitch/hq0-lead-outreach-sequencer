@@ -76,7 +76,7 @@ class LeadOutreachSequencerCrew:
             inject_date=True,
             allow_delegation=False,
             max_iter=10,
-            apps=["google_gmail/send_email"],
+            apps=["gmail/send_email"],
             llm=_CLAUDE,
         )
 

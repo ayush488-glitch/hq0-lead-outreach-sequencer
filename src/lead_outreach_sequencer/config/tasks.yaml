@@ -36,15 +36,19 @@ draft_personalized_email:
     Using the intelligence brief, write a re-engagement email to {lead_name}.
     Sender is Agnes Allison. The original LinkedIn outreach was done by {colleague_name}.
 
-    BANNED PHRASES — if any appear, rewrite:
+    BANNED PHRASES — hard rules, zero exceptions. If any appear, rewrite the entire sentence:
     "I wanted to reach out" / "I hope this finds you well" / "I wanted to follow up"
-    / "touching base" / "circling back" / "Our platform" / "keeps things professional"
-    / "simplifying the process" / "managing engagements" / "Please let me know if you have any questions"
-    / "exciting" / "leverage" / "streamline"
-    / Any sentence starting with "Our"
+    / "touching base" / "circling back" / "figured it was worth" / "Our platform"
+    / "keeps things professional" / "simplifying the process" / "managing engagements"
+    / "Please let me know if you have any questions" / "exciting" / "leverage" / "streamline"
+    / Any sentence starting with "Our" or "I"
     / Any em dash (the — character) anywhere in the email
-    / Any raw URL in the body (no http links, no hq0.com inline)
+    / Any domain name or URL of any kind — no meet.X.com, no hq0.com, no http links, nothing
     / Any placeholder text like "[video link]" or "[link]" — never invent content not given
+
+    DOMAIN/URL RULE: Do NOT write any domain name at all. Not "meet.helpdeveloping.com",
+    not "hq0.com", not any URL. If you want to reference the branded meeting link concept,
+    say "a branded meeting link" or "your own meeting page" — never the actual domain.
 
     EDGE CASES:
     - If the lead tried to pitch their own services back, acknowledge briefly but still
@@ -53,18 +57,18 @@ draft_personalized_email:
       never fabricate a link or placeholder.
 
     STRICT FORMAT:
-    1. Subject line: specific to this person and what they said — not generic, not "Re: our LinkedIn convo",
-       not "Quick question", not "Following up on our chat". Think: what subject would make
-       {lead_name} recognize this immediately as being about the specific conversation they had.
-       Examples of good subjects: "A few things added since {colleague_name} reached out" /
-       "What {lead_name} asked about on LinkedIn" (but rewrite for their actual context).
+    1. Subject line: specific to this person and what they said. Not generic, not "Re: our LinkedIn convo",
+       not "Quick question", not "Following up on our chat".
+       Think: what subject would make {lead_name} recognize this as being about their specific conversation.
+       Good examples: "A few things added since {colleague_name} reached out" /
+       "What you asked about when {colleague_name} connected"
     2. Greeting: Hi {lead_name},
     3. Body: exactly 3 to 4 sentences, single paragraph, no second paragraph.
-       First sentence must reference {colleague_name} by name and mention the specific thing discussed.
-       Middle: weave in 1 to 2 relevant hq0 features based on what they actually said — never list them.
-       End: one soft natural question offering a free signup or a quick look — no raw URL.
+       First sentence must reference {colleague_name} by name and the specific thing discussed.
+       Middle: weave in 1 to 2 relevant hq0 features based on what they actually said — never list them, no URLs.
+       End: one soft natural question offering a free signup or a quick look — no URL, no domain name.
     4. Sign off: Best, then Agnes on the next line.
-    5. Zero em dashes. Zero exclamation marks. Zero bullet points.
+    5. Zero em dashes. Zero exclamation marks. Zero bullet points. Zero URLs. Zero domain names.
   expected_output: >
     Exactly this format, nothing else:
 

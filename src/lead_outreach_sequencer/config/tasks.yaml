@@ -105,12 +105,11 @@ send_email_via_gmail:
         to: {lead_email}
         cc: ayush@sbl.so,team@sbl.so
         subject: [exact subject line from the drafted email]
-        body: [the email body converted to HTML for proper Gmail rendering:
-               - Replace every blank line between paragraphs with </p><p>
-               - Wrap the entire body in <p>...</p> tags
-               - The sign-off "Best,\nAgnes" becomes Best,<br>Agnes
-               - Example: <p>First paragraph text.</p><p>Second paragraph text.</p><p>Third paragraph question.</p><p>Best,<br>Agnes</p>]
-      Do not modify the subject or text content. Only convert formatting to HTML.
+        body: [the email body as plain text, with a blank line between each paragraph.
+               Use actual newlines. Do NOT use HTML tags like <p> or <br>.
+               Format exactly like this:
+               Hi Brandon,\n\n[paragraph 1]\n\n[paragraph 2]\n\n[paragraph 3]\n\nBest,\nAgnes]
+      Do not modify the subject or text content.
       After the tool confirms, report the recipient, subject, and that it was sent.
   expected_output: >
     If dry_run:

@@ -1,0 +1,138 @@
+---
+research_lead_intelligence:
+  description: >
+    Research {lead_name} at {company_name} to build a complete intelligence picture
+    before writing an outreach email. Use all available tools.
+
+    Step 1 — Scrape their company website ({company_website}) to understand:
+    - What the company actually does (product, service, industry)
+    - Who their customers are
+    - What their brand/positioning looks like
+    - Any clues about their current meeting/collaboration tools
+
+    Step 2 — Search the web for recent news about {company_name} and {lead_name}:
+    - Recent funding, hires, product launches
+    - Any news that signals growth, change, or pain
+    - Their role and seniority context
+
+    Step 3 — Analyze the conversation history carefully:
+    {conversation_history}
+
+    From this conversation extract:
+    - What stage is this relationship? (first contact, warm lead, previous objection, said yes, said no)
+    - What specific interest or signal did {lead_name} express about hq0?
+    - What objection did they raise, if any? (e.g., "we already have tools", "too busy", "not interested")
+    - What features were discussed or seemed most relevant to them?
+    - What did {colleague_name} say that got the most traction?
+    - What is the strongest re-engagement angle given everything above?
+
+    Combine all of this into a sharp intelligence brief that gives the copywriter
+    exactly what they need to write a precise, relevant email — not a generic one.
+  expected_output: >
+    A structured intelligence brief with these sections:
+    1. Company snapshot (2-3 sentences: what they do, who they serve, any notable recent context)
+    2. Lead profile (their role, likely pain points with current meeting tools)
+    3. Conversation summary (what was discussed, what they showed interest in, any objections raised)
+    4. Best re-engagement angle (the single strongest hook for the email based on all research)
+    5. Relevant hq0 features to mention (specific to their context — don't list everything)
+    6. Tone guidance (casual/formal, reference to colleague name {colleague_name}, callback to specific thing they said)
+  agent: lead_researcher
+
+draft_personalized_email:
+  description: >
+    Using the intelligence brief from the researcher, write a re-engagement email to
+    {lead_name} at {lead_email}. The sender is {sender_name} and the original LinkedIn
+    outreach was done by {colleague_name}.
+
+    STRICT EMAIL RULES:
+    1. Max 5 sentences in the body — not a word more
+    2. Must reference the LinkedIn conversation with {colleague_name} in the first sentence
+    3. Must reference something specific from the conversation or the company research — never generic
+    4. Zero marketing language: no "exciting", no "I wanted to reach out", no "I hope this
+       email finds you well", no "Please let me know if you have any questions", no bullet lists
+    5. Features should be mentioned casually in flowing prose, not as a feature dump
+    6. End with one soft, open-ended question (not "Would you like to schedule a demo?")
+    7. Sign off as {sender_name}
+
+    SUBJECT LINE RULES (these are equally important):
+    - Must feel like a real person wrote it, not a campaign tool
+    - Reference the prior conversation specifically (e.g., "Following up from our LinkedIn chat")
+    - Or frame around what's new (e.g., "A few new things since we last spoke")
+    - Or ask a specific relevant question (e.g., "One quick question about your meeting setup")
+    - NEVER: "Quick question!", "Exciting updates!", "Hope you're doing well", "RE: [Company]",
+      clickbait questions with obvious answers, or anything that sounds like a mass email
+
+    The email must be ready to send exactly as written — no placeholders, no brackets, no
+    notes to the sender. If the intelligence brief says they previously objected (e.g., "we
+    already have tools"), angle the email around the specific gap hq0 fills vs. what they have.
+  expected_output: >
+    A complete, send-ready email in this exact format:
+
+    Subject: [subject line here]
+
+    [email body here — 5 sentences max, signed off as {sender_name}]
+
+    Nothing else — no commentary, no formatting notes, no alternatives.
+  agent: personalized_outreach_specialist
+  context:
+    - research_lead_intelligence
+
+review_and_approve_email:
+  description: >
+    Present the drafted email clearly to the human reviewer for approval before it is sent.
+
+    Format the draft like this for the reviewer:
+
+    ─────────────────────────────────────────────
+    DRAFT EMAIL FOR REVIEW
+    To: {lead_email} ({lead_name})
+    ─────────────────────────────────────────────
+    [insert the full email draft here, exactly as it appears]
+    ─────────────────────────────────────────────
+
+    Then ask the reviewer:
+    "Please review this draft. Type one of:
+    - APPROVE — to send it as-is
+    - REJECT — to skip this lead entirely
+    - EDIT: [your feedback] — to request specific changes before sending"
+
+    Wait for the reviewer's response. Your output must clearly state what the reviewer decided.
+    If they said APPROVE, output: APPROVED
+    If they said REJECT, output: REJECTED
+    If they said EDIT with feedback, output: REVISION NEEDED: [their exact feedback]
+  expected_output: >
+    One of the following (exactly):
+    - APPROVED
+    - REJECTED
+    - REVISION NEEDED: [specific feedback from the reviewer]
+  agent: approval_coordinator
+  human_input: true
+  context:
+    - draft_personalized_email
+
+send_email_via_gmail:
+  description: >
+    Check the approval decision from the review step. Then act accordingly:
+
+    If the approval decision is APPROVED:
+    - Send the email drafted in the previous step to {lead_email}
+    - CC ayush@sbl.so
+    - Use the exact subject line and body from the draft — do not modify anything
+    - Confirm successful delivery
+
+    If the approval decision is REJECTED:
+    - Do NOT send anything
+    - Output: "Email not sent for {lead_name} ({lead_email}) — reviewer rejected this draft."
+
+    If the approval decision is REVISION NEEDED:
+    - Do NOT send anything
+    - Output: "Email not sent for {lead_name} ({lead_email}) — revision requested: [feedback].
+      Please re-run this lead with updated guidance."
+  expected_output: >
+    One of:
+    - Confirmation of successful send including: recipient, CC, subject line used, timestamp
+    - "Email not sent for [name] — [reason]"
+  agent: email_dispatcher
+  context:
+    - review_and_approve_email
+    - draft_personalized_email

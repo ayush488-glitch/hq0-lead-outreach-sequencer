@@ -1,0 +1,20 @@
+[
+  {
+    "lead_name": "Sheldon",
+    "lead_email": "sheldon@reboundtag.com",
+    "company_name": "ReboundTAG",
+    "company_website": "https://reboundtag.com",
+    "conversation_history": "Rohan (Mar 31): hey Sheldon - thanks for connecting :) Would it be cool if I shared a free tool that helps companies brand their meeting links instead of using generic Zoom ones?\nSheldon (Mar 31): What does this cost?\nRohan (Mar 31): hey, hq0 lets you run meetings on your own domain instead of zoom or google meet links. so it's like meet.yourcompany.com, with your logo and colors. makes calls look way more polished. free to start (no credit card). paid plans if you want more later.\nSheldon (Mar 31): 👍\nRohan (Apr 2): Loved your recent posts about ReboundTAG - great visibility. If you'd like, I can set up an HQ0 room tied to your brand and share a preview link so you can try it with one client. Want me to create one for you?\nSheldon (Apr 2): Sure",
+    "sender_name": "Ayush",
+    "colleague_name": "Rohan"
+  },
+  {
+    "lead_name": "Daniel",
+    "lead_email": "daniel@example.com",
+    "company_name": "AIOPrepAcademy",
+    "company_website": "https://aioprepacademy.com",
+    "conversation_history": "Rohan (Mar 11): hey Daniel - thanks for connecting :) Would it be cool if I shared a free tool that helps companies brand their meeting links instead of using generic Zoom ones? If not completely alright - sending you positive vibes, hope day's going well\nRohan (Mar 13): hey Daniel - just bumping this in case it got buried. short version: you can do video calls on meet.aioprepacademy instead of a generic zoom link. plus AI writes your meeting notes after every call. free to try at hq0.com. no worries if its not your thing though!\nDaniel (Mar 13): Hello Rohan, Thanks for reaching out. I will check it out later in the day. Cheers\nRohan (Mar 13): cool, daniel! i'll touch base tomorrow to see how it goes. have a good one!\nDaniel (Mar 13): Thanks! You, too\nRohan (Mar 15): Hey Daniel - hope your day's going well. Curious whether you had a chance to take a look at hq0 yet? If it helps, I can share a short note on how teams with tight security and event controls use branded meeting domains to enforce access, audit calls, and keep post-call notes centralized - no pressure, just something practical you can scan. Want that?\nDaniel (Mar 17): Hello Rohan, Trust your days going well and apologises for the late response. I really haven't gone through it yet, as I have been swamped lately. I'll revert when I'm settled enough. Thanks for reaching out. Cheers.\nRohan (Mar 31): Hey Daniel—just looping back as promised. Did you get a chance to explore hq0? Happy to help with any questions.\nDaniel (Apr 3): Howdy Rohan, Apologises for the late response, a whole lot going on over here. Trust you're doing well? I went through the meeting platform and I must say it's pretty impressive. I shared it with the team and they liked it, but unfortunately we already have pre designed and existing apps that provide the same service. So what's next with your application?",
+    "sender_name": "Ayush",
+    "colleague_name": "Rohan"
+  }
+]

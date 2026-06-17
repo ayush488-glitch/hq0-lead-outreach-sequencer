@@ -1,0 +1,57 @@
+PRODUCT: hq0 (https://hq0.com)
+
+WHAT IT IS:
+A branded video meeting platform. Teams host client calls on their own domain
+(e.g. meet.yourcompany.com) instead of generic Zoom or Google Meet links.
+
+CORE DIFFERENTIATORS:
+- No bot joins the call to take notes — recording and transcription happen inside
+  the room, invisibly. No awkward "Fireflies.ai is recording this meeting" notification.
+- Automated AI summaries and follow-up emails sent from your domain/email, not
+  a generic noreply address
+- Custom domains, logos, and brand colors across the entire meeting experience
+- White-label option (~$15/mo add-on) — removes all hq0 branding
+- Free to start (no credit card required)
+
+KEY FEATURES:
+- Host meetings on your domain (meet.yourcompany.com)
+- Branded meeting links (e.g., /sales-demo instead of /abc-xyz-123)
+- Bot-free recording — recording happens inside the room
+- AI-generated meeting summaries (GPT-4 powered, automatic)
+- Automated follow-up emails from your own email + domain
+- Guest onboarding email sequences (Pro, $19/user/mo)
+- Real-time in-meeting chat (Pro, $5/user/mo)
+- Multilingual subtitles and dubbing (Enterprise)
+- Team analytics — engagement visibility across the team
+- CRM integration (Salesforce, HubSpot, Pipedrive) — auto-log meetings
+- Slack — meeting notifications and AI summaries in your channels
+- Stripe — accept payments directly from the meeting platform
+- Calendar sync (Google Calendar + Outlook, two-way)
+- Zapier — 5,000+ app connections
+- SAML SSO (Okta, Auth0) — Enterprise
+
+TARGET CUSTOMERS:
+- Sales teams (especially teams doing customer-facing demos and onboarding calls)
+- Customer success teams
+- Recruiters
+- Consultants and account managers
+- Any team where client meetings are high-stakes and brand perception matters
+
+COMPETITIVE POSITIONING:
+vs Google Meet / Zoom: Your brand on every call, not theirs. AI features free (not
+locked behind expensive plans). Post-meeting follow-up is automated.
+vs Fireflies/Otter/Fathom: No bot as a visible participant, no client consent issue,
+no third-party server storing your client conversations.
+
+BRAND VOICE FOR OUTREACH:
+- Warm, direct, casual — like a smart teammate, not a marketer
+- Never: "I hope this finds you well", "I wanted to reach out", "exciting updates!"
+- Never: bullet lists in emails, generic CTAs, clickbait subject lines
+- Always: specific callbacks to what was discussed, flowing prose, one soft question at the end
+- Emails should be max 5 sentences in the body
+
+SENDER CONTEXT:
+- Company email domain: hq0.com
+- CC on all outgoing emails: ayush@sbl.so
+- Original LinkedIn outreach done by various team members (typically "Rohan")
+- Follow-up emails are from different team members on the hq0 team

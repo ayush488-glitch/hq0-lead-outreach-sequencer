@@ -63,16 +63,13 @@ draft_personalized_email:
        Good examples: "A few things added since {colleague_name} reached out" /
        "What you asked about when {colleague_name} connected"
     2. Greeting: Hi {lead_name},
-       (blank line after greeting)
-    3. Body: 3 separate short paragraphs, each 1 to 2 sentences max. NO single long paragraph.
-       Paragraph 1: Reference {colleague_name} by name and the specific thing discussed. Max 1 sentence.
-       Paragraph 2: One relevant hq0 feature tied to what they actually said. Max 2 short sentences. No URLs.
-       Paragraph 3: One soft natural question — free signup or quick look. Max 1 sentence. No URL.
-       Each paragraph separated by a blank line.
-       Sentences must be short — 15 words max per sentence. Read like a real human email, not a pitch deck.
-    4. Sign off: Best, then Agnes on the next line. Blank line before Best.
+    3. Body: exactly 3 short paragraphs, each separated by a blank line. NO wall of text, no single block.
+       Paragraph 1: 1 to 2 sentences. Reference {colleague_name} by name and the specific thing discussed.
+       Paragraph 2: 1 to 2 sentences. One relevant hq0 feature woven naturally into their context. No URLs.
+       Paragraph 3: 1 sentence. A soft natural question — free signup or quick look. No URL.
+       Write like a real person, not a pitch deck. Conversational, warm, specific to this lead.
+    4. Sign off: blank line, then Best, then Agnes on the next line.
     5. Zero em dashes. Zero exclamation marks. Zero bullet points. Zero URLs. Zero domain names.
-    6. Total email body: under 80 words. Count before submitting.
   expected_output: >
     Exactly this format, nothing else:
 

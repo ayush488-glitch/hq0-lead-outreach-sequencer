@@ -5,96 +5,85 @@ research_lead_intelligence:
     before writing an outreach email. Use all available tools.
 
     Step 1 — Scrape their company website ({company_website}) to understand:
-    - What the company actually does (product, service, industry)
-    - Who their customers are
-    - What their brand/positioning looks like
+    - What the company actually does and who their customers are
     - Any clues about their current meeting/collaboration tools
 
     Step 2 — Search the web for recent news about {company_name} and {lead_name}:
-    - Recent funding, hires, product launches
-    - Any news that signals growth, change, or pain
-    - Their role and seniority context
+    - Recent funding, hires, product launches, or any signal of growth or pain
 
     Step 3 — Analyze the conversation history carefully:
     {conversation_history}
 
-    From this conversation extract:
-    - What stage is this relationship? (first contact, warm lead, previous objection, said yes, said no)
-    - What specific interest or signal did {lead_name} express about hq0?
-    - What objection did they raise, if any? (e.g., "we already have tools", "too busy", "not interested")
-    - What features were discussed or seemed most relevant to them?
-    - What did {colleague_name} say that got the most traction?
-    - What is the strongest re-engagement angle given everything above?
-
-    Combine all of this into a sharp intelligence brief that gives the copywriter
-    exactly what they need to write a precise, relevant email — not a generic one.
+    Extract: relationship stage, what interest they showed, objections raised,
+    what {colleague_name} said that got traction, and the strongest re-engagement angle.
   expected_output: >
-    A structured intelligence brief with these sections:
-    1. Company snapshot (2-3 sentences: what they do, who they serve, any notable recent context)
-    2. Lead profile (their role, likely pain points with current meeting tools)
-    3. Conversation summary (what was discussed, what they showed interest in, any objections raised)
-    4. Best re-engagement angle (the single strongest hook for the email based on all research)
-    5. Relevant hq0 features to mention (specific to their context — don't list everything)
-    6. Tone guidance (casual/formal, reference to colleague name {colleague_name}, callback to specific thing they said)
+    A structured intelligence brief with:
+    1. Company snapshot (2-3 sentences)
+    2. Lead profile and likely pain points with current meeting tools
+    3. Conversation summary — what was discussed, what they showed interest in, any objections
+    4. Best re-engagement angle (the single strongest hook)
+    5. Relevant hq0 features to mention (specific to their context)
+    6. Tone guidance and callback to something specific they said
   agent: lead_researcher
 
 draft_personalized_email:
   description: >
-    Using the intelligence brief from the researcher, write a re-engagement email to
-    {lead_name} at {lead_email}. The sender is {sender_name} and the original LinkedIn
-    outreach was done by {colleague_name}.
+    Using the intelligence brief, write a re-engagement email to {lead_name}.
+    Sender is {sender_name}. Original LinkedIn outreach was by {colleague_name}.
 
-    STRICT EMAIL RULES:
-    1. Max 5 sentences in the body — not a word more
-    2. Must reference the LinkedIn conversation with {colleague_name} in the first sentence
-    3. Must reference something specific from the conversation or the company research — never generic
-    4. Zero marketing language: no "exciting", no "I wanted to reach out", no "I hope this
-       email finds you well", no "Please let me know if you have any questions", no bullet lists
-    5. Features should be mentioned casually in flowing prose, not as a feature dump
-    6. End with one soft, open-ended question (not "Would you like to schedule a demo?")
-    7. Sign off as {sender_name}
+    BANNED PHRASES — rewrite if any appear:
+    "I wanted to reach out" / "I hope this finds you well" / "I wanted to reassure you"
+    / "Our platform" / "keeps things professional" / "simplifying the process"
+    / "managing engagements" / "Please let me know if you have any questions"
+    / Any sentence starting with "Our"
 
-    SUBJECT LINE RULES (these are equally important):
-    - Must feel like a real person wrote it, not a campaign tool
-    - Reference the prior conversation specifically (e.g., "Following up from our LinkedIn chat")
-    - Or frame around what's new (e.g., "A few new things since we last spoke")
-    - Or ask a specific relevant question (e.g., "One quick question about your meeting setup")
-    - NEVER: "Quick question!", "Exciting updates!", "Hope you're doing well", "RE: [Company]",
-      clickbait questions with obvious answers, or anything that sounds like a mass email
+    STRICT RULES:
+    1. Max 4 sentences in the body
+    2. First sentence: mention {colleague_name} reached out on LinkedIn + the specific thing discussed
+    3. Middle: what's new at hq0 — 2-3 features woven into one flowing sentence, not listed
+    4. End: one soft open question ("Would you want to take another look?" style)
+    5. Sign off: "Best," then {sender_name}
 
-    The email must be ready to send exactly as written — no placeholders, no brackets, no
-    notes to the sender. If the intelligence brief says they previously objected (e.g., "we
-    already have tools"), angle the email around the specific gap hq0 fills vs. what they have.
+    SUBJECT LINE — must feel like a real person, referencing the specific prior conversation.
+    GOOD: "Following up on the ReboundTAG room" / "A few things added since Mahi reached out"
+    BAD: anything generic, any "!" marks, "Quick question", "Exciting updates"
   expected_output: >
-    A complete, send-ready email in this exact format:
+    Exactly this format, nothing else:
 
-    Subject: [subject line here]
+    Subject: [subject line]
 
-    [email body here — 5 sentences max, signed off as {sender_name}]
+    Hi {lead_name},
 
-    Nothing else — no commentary, no formatting notes, no alternatives.
+    [4 sentences max]
+
+    Best,
+    {sender_name}
   agent: personalized_outreach_specialist
   context:
     - research_lead_intelligence
 
 send_email_via_gmail:
   description: >
-    Send the approved email to {lead_email} via Gmail. CC ayush@sbl.so.
+    Check the dry_run flag: {dry_run}
 
-    The approved email content is provided below — use it exactly as given,
-    do not modify the subject line or body in any way:
+    If {dry_run} is "true" or "True" or "yes":
+      DO NOT send any email.
+      Output the full drafted email exactly as it appears from the previous task,
+      clearly labelled as "DRY RUN PREVIEW — email NOT sent:"
+      This allows the human reviewer to read and approve the draft before sending.
 
-    {approved_email}
-
-    Steps:
-    1. Parse the subject line (the line starting with "Subject:")
-    2. Parse the body (everything after the subject line)
-    3. Send to {lead_email}, CC ayush@sbl.so
-    4. Confirm delivery
+    If {dry_run} is "false" or "False" or "no":
+      Send the drafted email to {lead_email} via Gmail.
+      CC ayush@sbl.so.
+      Use the exact subject line and body from the draft — do not modify anything.
+      Confirm successful delivery.
   expected_output: >
-    Confirmation of successful send including:
-    - Recipient email address
-    - CC address (ayush@sbl.so)
-    - Subject line used
-    - Confirmation that the email was dispatched
+    If dry_run:
+      "DRY RUN PREVIEW — email NOT sent:
+      [full email subject and body]"
+
+    If not dry_run:
+      Confirmation including recipient, CC, subject line used, and delivery status.
   agent: email_dispatcher
+  context:
+    - draft_personalized_email
